@@ -11,13 +11,13 @@ This webpack loader generates the `resources` structure necessary for [i18next](
 
 - [x] glob based file filtering
 - [x] one to many overrides supporting reuse cases (white labeling)
-- [x] yaml and json support 
+- [x] yaml and json support
 - [ ] locale chunking (help wanted - see [#6](https://github.com/alienfast/i18next-loader/issues/6))
- 
-Given a locales directory, by default, the loader will find and parse any `json|yaml|yml` file and attribute the 
-contents to the containing lang folder e.g. `en`.  There is no need to add lang such as `en` or `de` inside your 
+
+Given a locales directory, by default, the loader will find and parse any `json|yaml|yml` file and attribute the
+contents to the containing lang folder e.g. `en`.  There is no need to add lang such as `en` or `de` inside your
 `json` or `yaml` files.
- 
+
 See the [`test/data` directory](https://github.com/alienfast/i18next-loader/tree/develop/test/data) for structure and example data.
 
 ## Usage
@@ -108,7 +108,7 @@ By default, any `json|yaml|yml` will be loaded.
 ```
 
 ### Overriding/White labeling
-Applications that reuse libraries e.g. white labeling, can utilize one to many sets of locale directories that 
+Applications that reuse libraries e.g. white labeling, can utilize one to many sets of locale directories that
 the app will override.  
 
 ```javascript
@@ -135,6 +135,17 @@ This configures the loader to work on a file structure like the following:
 ```
 
 Everything from `app/locales` will override anything specified in one to many libraries.
+
+#### Override path method
+`join | resolve | replace`
+
+`join` by default
+
+`join` and `replace` is `path` methods with locales folder
+
+```javascript
+{overridePathMethod: 'replace'}
+```
 
 #### Use file basename as the i18next namespace
 ```javascript
@@ -174,7 +185,7 @@ Results in this object loaded:
     }
   },
   "bar": {
-    "footer":{ 
+    "footer":{
       "aboutUs":"About us"
     }
   }
