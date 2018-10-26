@@ -14,7 +14,7 @@ describe('relativepath', function () {
           addDependency: emptFn,
           addContextDependency: emptFn,
           cacheable: emptFn,
-          resource: path.join(__dirname, `./data/basic-app-context-${type}/locales/index.js`),
+          resource: path.join(__dirname, `./data/relativePathAsNamespace-${type}/locales/index.js`),
           query: {
             relativePathAsNamespace: true
           }
