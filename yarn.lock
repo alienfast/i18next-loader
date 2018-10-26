@@ -2,13 +2,13 @@
 # yarn lockfile v1
 
 
-"@alienfast/build@^4.1.120":
-  version "4.1.120"
-  resolved "https://registry.yarnpkg.com/@alienfast/build/-/build-4.1.120.tgz#e4e8237340f71ad021e0b57cd6a90a1f58b9b862"
-  integrity sha512-CpdCcD1TfFAdrrWPD2LE6WJj2hg9YBWIsVx9lVFP418+fXNccOjUUoVn3eq4/1HxtwqNfY1tsqowUa67mtkQbw==
+"@alienfast/build@^4.1.121":
+  version "4.1.121"
+  resolved "https://registry.yarnpkg.com/@alienfast/build/-/build-4.1.121.tgz#4edf869d7ee6ebf60551f833ee77627bb368b4d4"
+  integrity sha512-/atF3yloeZ0pYJ1P1wfStE+7GQ3XqeKtq/Fo/ecQdNw4zHw4C5pfYzC7gO/Wt9a+r5Pv9FfKMUMJszHH6A5XxQ==
   dependencies:
-    "@alienfast/common" "^4.1.120"
-    "@alienfast/common-node" "^4.1.120"
+    "@alienfast/common" "^4.1.121"
+    "@alienfast/common-node" "^4.1.121"
     "@babel/core" "^7.1.2"
     "@types/dotenv" "^4.0.3"
     "@types/fs-extra" "^5.0.4"
@@ -89,10 +89,10 @@
     whatwg-fetch "^3.0.0"
     yargs "^12.0.2"
 
-"@alienfast/common-node@^4.1.120":
-  version "4.1.120"
-  resolved "https://registry.yarnpkg.com/@alienfast/common-node/-/common-node-4.1.120.tgz#5df2de200d5c2717710038ccea8006fe3ea64eea"
-  integrity sha512-GZy5zbl2JVFCh1aSt+aJcmdzftQ4eVJ8H9iEu2HZA/u0eGxjvmGUN6kkwVCEQzF0pp6Y7vdVcBYLgyapva8EZg==
+"@alienfast/common-node@^4.1.121":
+  version "4.1.121"
+  resolved "https://registry.yarnpkg.com/@alienfast/common-node/-/common-node-4.1.121.tgz#dbaaa3b1db95b7ee42058855a6b5bcaabd2e37f1"
+  integrity sha512-Is357DXnm3oglfACGaWm9l5oJwOnG3pj1gkDFqIuqm2uWvcN/ybGxaFO9T9FvmXT0OeNPF8T1pCIVRfpEq7B8w==
   dependencies:
     "@types/del" "^3.0.1"
     "@types/findup-sync" "^0.3.29"
@@ -115,10 +115,10 @@
     strip-json-comments "^2.0.1"
     time-stamp "^2.1.0"
 
-"@alienfast/common@^4.1.120":
-  version "4.1.120"
-  resolved "https://registry.yarnpkg.com/@alienfast/common/-/common-4.1.120.tgz#25f2a86e2004b627210baa1397a188af4fa16d08"
-  integrity sha512-u7OmfuFk0ziq5VdVz09pLb56itQDJd/Vod2VBY4DXTj8+GPNfT44R2yJWRqiLUfUpvIatgSZKGGNG0sL5QJlkA==
+"@alienfast/common@^4.1.121":
+  version "4.1.121"
+  resolved "https://registry.yarnpkg.com/@alienfast/common/-/common-4.1.121.tgz#7fb85432cedfbd371aebe739c6bb388616643ae6"
+  integrity sha512-cw0lBfhzrwHgSREGVKOEpNkE7H6CNcz9E9F0RbcA708MUhUlsPbkckShek9Gwif2OouuMKG3oJX4pnph7buwYw==
   dependencies:
     "@types/graphql" "^14.0.3"
     "@types/lodash" "^4.14.117"
