@@ -3,6 +3,16 @@
 [![CircleCI](https://circleci.com/gh/alienfast/i18next-loader/tree/develop.svg?style=svg&circle-token=9de60bf76b13f269bb560cd89ea253c9c04238ce)](https://circleci.com/gh/alienfast/i18next-loader/tree/develop)
 [![npm version](https://badge.fury.io/js/%40alienfast%2Fi18next-loader.svg)](https://badge.fury.io/js/%40alienfast%2Fi18next-loader)
 
+---
+MAINTENANCE NOTE:
+
+We have switched our toolchain to use `vite` instead of `webpack`.  While this plugin will still work, I'm not likely to be putting effort into maintaining this project, but will certainly accept and merge pull requests.
+
+If you haven't used `vite` yet, I encourage you to try it!  AND...I have migrated this plugin to work with `vite` so you can keep doing the same thing with your locale files!   1.0.0 has been released https://github.com/alienfast/vite-plugin-i18next-loader.
+
+---
+
+
 `yarn add -D @alienfast/i18next-loader`
 
 This webpack loader generates the `resources` structure necessary for [i18next](https://github.com/i18next/i18next).  The structure is webpacked with the client bundle at build time, thus avoiding loading any language resources via extra HTTP requests.
