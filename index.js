@@ -77,7 +77,7 @@ module.exports = function () {
         const extname = path.extname(fullPath);
         let parsedContent;
         if (extname === ".yaml" || extname === ".yml") {
-          parsedContent = yaml.safeLoad(fileContent);
+          parsedContent = yaml.load(fileContent);
         } else {
           parsedContent = JSON.parse(fileContent);
         }
