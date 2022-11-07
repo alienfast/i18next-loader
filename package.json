@@ -4,7 +4,8 @@
   "description": "Webpack loader for client embedded i18next locales from json or yaml.",
   "packageManager": "yarn@3.2.4",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "main": "index.js",
   "scripts": {
@@ -26,10 +27,7 @@
       "url": "http://www.opensource.org/licenses/mit-license.php"
     }
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/alienfast/i18next-loader"
-  },
+  "repository": "https://github.com/alienfast/i18next-loader",
   "homepage": "https://github.com/alienfast/i18next-loader",
   "maintainers": [
     {
