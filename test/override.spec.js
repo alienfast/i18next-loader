@@ -13,6 +13,7 @@ describe("override", function () {
           addDependency: emptFn,
           addContextDependency: emptFn,
           cacheable: emptFn,
+          getOptions: emptFn,
           resource: path.join(
             __dirname,
             `./data/override-app-${type}/locales/index.js`
@@ -37,7 +38,9 @@ describe("override", function () {
       });
 
       it("should merge app over any libraries", function () {
-        thisScope.query = '?{overrides: ["../node_modules/lib/locales"]}';
+        thisScope.getOptions = () => ({
+          overrides: ["../node_modules/lib/locales"],
+        });
         const res = loader.call(thisScope, "index.js");
         const resStore = eval(res);
         assert.strictEqual(resStore.en.main.sub.test, "lib sub.test en");

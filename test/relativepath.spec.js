@@ -14,14 +14,11 @@ describe("relativepath", function () {
           addDependency: emptFn,
           addContextDependency: emptFn,
           cacheable: emptFn,
-          getOptions: emptFn,
+          getOptions: () => ({ relativePathAsNamespace: true }),
           resource: path.join(
             __dirname,
             `./data/relativePathAsNamespace-${type}/locales/index.js`
           ),
-          query: {
-            relativePathAsNamespace: true,
-          },
         };
         done();
       });

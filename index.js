@@ -2,7 +2,6 @@ const path = require("path");
 const fs = require("fs");
 const merge = require("lodash/merge");
 const globAll = require("glob-all");
-const loaderUtils = require("loader-utils");
 const yaml = require("js-yaml");
 const set = require("lodash/set");
 
@@ -20,7 +19,7 @@ function findAll(globs, cwd) {
 
 module.exports = function () {
   this.cacheable && this.cacheable();
-  const options = loaderUtils.getOptions(this) || {};
+  const options = this.getOptions() || {};
 
   if (!options.include) {
     options.include = ["**/*.json", "**/*.yml", "**/*.yaml"];

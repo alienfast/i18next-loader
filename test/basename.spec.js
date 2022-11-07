@@ -14,14 +14,13 @@ describe("basename", function () {
           addDependency: emptFn,
           addContextDependency: emptFn,
           cacheable: emptFn,
-          getOptions: emptFn,
+          getOptions: () => ({
+            basenameAsNamespace: true,
+          }),
           resource: path.join(
             __dirname,
             `./data/basic-app-${type}/locales/index.js`
           ),
-          query: {
-            basenameAsNamespace: true,
-          },
         };
         done();
       });

@@ -13,6 +13,7 @@ describe("basic", function () {
           addDependency: emptFn,
           addContextDependency: emptFn,
           cacheable: emptFn,
+          getOptions: emptFn,
           resource: path.join(
             __dirname,
             `./data/basic-app-${type}/locales/index.js`
@@ -35,7 +36,7 @@ describe("basic", function () {
       });
 
       it("should process include", function () {
-        thisScope.query = `?{include: ['**/*.json']}`;
+        thisScope.getOptions = () => ({ include: ["**/*.json"] });
         thisScope.addDependency = function (path) {
           assert.notInclude(path, "main.nonjson");
         };
@@ -44,7 +45,9 @@ describe("basic", function () {
       });
 
       it("should not process files that are excluded", function () {
-        thisScope.query = `?{include: ['**/*.${type}', '!**/exclude.${type}']}`;
+        thisScope.getOptions = () => ({
+          include: [`**/*.${type}`, `!**/exclude.${type}`],
+        });
         thisScope.addDependency = function (path) {
           assert.notInclude(path, "exclude.json");
         };
