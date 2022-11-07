@@ -1,0 +1,14 @@
+.DS_Store
+tsconfig.json
+tsconfig.tsbuildinfo
+/.*
+yarn.lock
+/node_modules
+tsup.config.ts
+tsconfig.json
+
+./dist/__tests__
+
+src
+CHANGELOG.md
+*.tgz
