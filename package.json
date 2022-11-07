@@ -1,15 +1,16 @@
 {
   "name": "@alienfast/i18next-loader",
-  "version": "1.1.4",
+  "version": "2.0.0",
   "description": "Webpack loader for client embedded i18next locales from json or yaml.",
+  "packageManager": "yarn@3.2.4",
   "publishConfig": {
     "access": "public"
   },
   "main": "index.js",
   "scripts": {
-    "test": "yarn test:unit",
-    "test:unit": "mocha",
-    "test:watch": "mocha -w"
+    "test": "mocha",
+    "test:watch": "mocha -w",
+    "release": "yarn auto shipit"
   },
   "keywords": [
     "webpack",
@@ -43,8 +44,15 @@
     "lodash": "^4.17.15"
   },
   "devDependencies": {
-    "@alienfast/ci": "^7.0.7",
-    "chai": "^4.2.0",
-    "mocha": "^6.2.1"
+    "auto": "^10.37.6",
+    "chai": "^4.3.6",
+    "eslint": "^8.27.0",
+    "mocha": "^10.1.0"
+  },
+  "author": "Kevin Ross <kevin.ross@alienfast.com>",
+  "auto": {
+    "plugins": [
+      "npm"
+    ]
   }
 }

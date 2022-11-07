@@ -1,33 +1,32 @@
 # @alienfast/i18next-loader
 
-[![CircleCI](https://circleci.com/gh/alienfast/i18next-loader/tree/develop.svg?style=svg&circle-token=9de60bf76b13f269bb560cd89ea253c9c04238ce)](https://circleci.com/gh/alienfast/i18next-loader/tree/develop)
 [![npm version](https://badge.fury.io/js/%40alienfast%2Fi18next-loader.svg)](https://badge.fury.io/js/%40alienfast%2Fi18next-loader)
 
 ---
+
 MAINTENANCE NOTE:
 
-We have switched our toolchain to use `vite` instead of `webpack`.  While this plugin will still work, I'm not likely to be putting effort into maintaining this project, but will certainly accept and merge pull requests.
+We have switched our toolchain to use `vite` instead of `webpack`. While this plugin will still work, I'm not likely to be putting effort into maintaining this project, but will certainly accept and merge pull requests.
 
-If you haven't used `vite` yet, I encourage you to try it!  AND...I have migrated this plugin to work with `vite` so you can keep doing the same thing with your locale files!   1.0.0 has been released https://github.com/alienfast/vite-plugin-i18next-loader.
+If you haven't used `vite` yet, I encourage you to try it! AND...I have migrated this plugin to work with `vite` so you can keep doing the same thing with your locale files! 1.0.0 has been released https://github.com/alienfast/vite-plugin-i18next-loader.
 
 ---
 
-
 `yarn add -D @alienfast/i18next-loader`
 
-This webpack loader generates the `resources` structure necessary for [i18next](https://github.com/i18next/i18next).  The structure is webpacked with the client bundle at build time, thus avoiding loading any language resources via extra HTTP requests.
+This webpack loader generates the `resources` structure necessary for [i18next](https://github.com/i18next/i18next). The structure is webpacked with the client bundle at build time, thus avoiding loading any language resources via extra HTTP requests.
 
 ## Features
 
 - [x] glob based file filtering
 - [x] one to many overrides supporting reuse cases (white labeling)
-- [x] yaml and json support 
+- [x] yaml and json support
 - [ ] locale chunking (help wanted - see [#6](https://github.com/alienfast/i18next-loader/issues/6))
- 
-Given a locales directory, by default, the loader will find and parse any `json|yaml|yml` file and attribute the 
-contents to the containing lang folder e.g. `en`.  There is no need to add lang such as `en` or `de` inside your 
+
+Given a locales directory, by default, the loader will find and parse any `json|yaml|yml` file and attribute the
+contents to the containing lang folder e.g. `en`. There is no need to add lang such as `en` or `de` inside your
 `json` or `yaml` files.
- 
+
 See the [`test/data` directory](https://github.com/alienfast/i18next-loader/tree/develop/test/data) for structure and example data.
 
 ## Usage
@@ -57,42 +56,42 @@ module.exports = {
     rules: [
       {
         test: /locales/,
-        loader: '@alienfast/i18next-loader',
+        loader: "@alienfast/i18next-loader",
         // options here
         //query: { overrides: [ '../node_modules/lib/locales' ] }
-      }
-    ]
-  }
+      },
+    ],
+  },
   // ... snip
-}
+};
 ```
 
 ```javascript
 // File: app.js
-import i18n from 'i18next'
-import resources from '../locales'  // typescript: import * as resources from '../locales'
+import i18n from "i18next";
+import resources from "../locales"; // typescript: import * as resources from '../locales'
 
 i18n.init({
-  resources
+  resources,
 });
 
 // Use the resources as documented on i18next.com
-i18n.t('key')
+i18n.t("key");
 ```
 
 ### Option 2: use with import syntax
 
 ```javascript
 // File: app.js
-import i18n from 'i18next'
-import resources from '@alienfast/i18next-loader!../locales/index.js'
+import i18n from "i18next";
+import resources from "@alienfast/i18next-loader!../locales/index.js";
 
 i18n.init({
-  resources
+  resources,
 });
 
 // Use the resources as documented on i18next.com
-i18n.t('key')
+i18n.t("key");
 ```
 
 And you're done! The `index.js` can be empty, it's just needed to point the loader to the root directory of the locales.
@@ -100,30 +99,41 @@ And you're done! The `index.js` can be empty, it's just needed to point the load
 ## Advanced Usage
 
 Options are set via the loader `query`. See webpack documentation for more details regarding how this mechanism works.
-The following examples assume you understand these values are used as the `query` value.  
+The following examples assume you understand these values are used as the `query` value.
 
 ### Filtering files
+
 You can filter files in your file structure by specifying any glob supported by [`glob-all`](https://github.com/jpillora/node-glob-all).
 
 By default, any `json|yaml|yml` will be loaded.
 
 #### Only json
+
 ```javascript
-{include: ['**/*.json']}
+{
+  include: ["**/*.json"];
+}
 ```
 
 #### All json except one file
+
 ```javascript
-{include: ['**/*.json', '!**/excludeThis.json']}
+{
+  include: ["**/*.json", "!**/excludeThis.json"];
+}
 ```
 
 ### Overriding/White labeling
-Applications that reuse libraries e.g. white labeling, can utilize one to many sets of locale directories that 
-the app will override.  
+
+Applications that reuse libraries e.g. white labeling, can utilize one to many sets of locale directories that
+the app will override.
 
 ```javascript
-{overrides: ['../node_modules/lib1/locales']} // relative or absolute paths
+{
+  overrides: ["../node_modules/lib1/locales"];
+} // relative or absolute paths
 ```
+
 This configures the loader to work on a file structure like the following:
 
 ```
@@ -147,11 +157,15 @@ This configures the loader to work on a file structure like the following:
 Everything from `app/locales` will override anything specified in one to many libraries.
 
 #### Use file basename as the i18next namespace
+
 ```javascript
-{basenameAsNamespace: true}
+{
+  basenameAsNamespace: true;
+}
 ```
 
 The following file structure would result in resources loaded as below:
+
 ```
 └── app
     ├── src
@@ -162,7 +176,9 @@ The following file structure would result in resources loaded as below:
            ├── foo.json
            └── bar.yaml
 ```
+
 foo.json
+
 ```
 {
   "header": {
@@ -170,12 +186,16 @@ foo.json
   }
 }
 ```
+
 bar.yaml
+
 ```
 footer:
   aboutUs: About us
 ```
+
 Results in this object loaded:
+
 ```
 "en": {
   "foo": {
@@ -184,7 +204,7 @@ Results in this object loaded:
     }
   },
   "bar": {
-    "footer":{ 
+    "footer":{
       "aboutUs":"About us"
     }
   }
@@ -192,11 +212,15 @@ Results in this object loaded:
 ```
 
 #### Use relative path as the i18next namespace
+
 ```javascript
-{relativePathAsNamespace: true}
+{
+  relativePathAsNamespace: true;
+}
 ```
 
 The following file structure would result in resources loaded as below:
+
 ```
 └── app
     └── locales
@@ -206,17 +230,23 @@ The following file structure would result in resources loaded as below:
            ├── blue
            ├──── foo.yaml
 ```
+
 green.yaml
+
 ```
 tree:
   species: Oak
 ```
+
 blue/foo.yaml
+
 ```
 water:
   ocean: Quite large
 ```
+
 Results in this object loaded:
+
 ```
 "en": {
   "green": {
@@ -225,7 +255,7 @@ Results in this object loaded:
     }
   },
   "blue": {
-    "foo":{ 
+    "foo":{
       "water": {
         "ocean": "Quite large"
       }
@@ -233,7 +263,9 @@ Results in this object loaded:
   }
 }
 ```
+
 **NOTE:** If you have a file and a folder with the same name, you MIGHT overwrite one with the other. For example:
+
 ```
 └── app
     └── locales
@@ -243,15 +275,21 @@ Results in this object loaded:
            ├── blue
            ├──── foo.yaml
 ```
+
 blue.yaml
+
 ```
 foo: Welcome
 ```
+
 blue/foo.yaml
+
 ```
 eggs: delicious
 ```
+
 Results in this object loaded:
+
 ```
 "en": {
   "blue": {
@@ -261,11 +299,11 @@ Results in this object loaded:
   }
 }
 ```
-But it's just overwriting based on the return value of `glob-all`, so you shouldn't depend on it.
 
+But it's just overwriting based on the return value of `glob-all`, so you shouldn't depend on it.
 
 ## Credit
 
 This was forked from [i18next-resource-store-loader](https://github.com/atroo/i18next-resource-store-loader) because
 we changed it in [breaking ways that are incompatible](https://github.com/atroo/i18next-resource-store-loader/issues/14#issuecomment-331726268).  
-Thanks to the original authors and contributors.  
+Thanks to the original authors and contributors.
