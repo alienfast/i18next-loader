@@ -40,12 +40,12 @@
   "dependencies": {
     "glob-all": "^3.3.1",
     "js-yaml": "^4.1.0",
-    "loader-utils": "^1.2.3",
+    "loader-utils": "^2.0.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
     "auto": "^10.37.6",
-    "chai": "^4.3.6",
+    "chai": "^4.3.7",
     "eslint": "^8.27.0",
     "mocha": "^10.1.0"
   },
