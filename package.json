@@ -41,9 +41,9 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "auto": "^10.37.6",
-    "chai": "^4.3.7",
-    "mocha": "^10.1.0"
+    "auto": "^11.0.4",
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0"
   },
   "author": "Kevin Ross <kevin.ross@alienfast.com>",
   "auto": {
