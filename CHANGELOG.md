@@ -1,3 +1,15 @@
+# v2.0.2 (Fri Sep 29 2023)
+
+#### 🐛 Bug Fix
+
+- ncu [#26](https://github.com/alienfast/i18next-loader/pull/26) ([@rosskevin](https://github.com/rosskevin))
+
+#### Authors: 1
+
+- Kevin Ross ([@rosskevin](https://github.com/rosskevin))
+
+---
+
 # v2.0.1 (Mon Nov 07 2022)
 
 #### 🐛 Bug Fix
